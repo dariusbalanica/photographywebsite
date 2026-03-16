@@ -1,2 +1,5 @@
+# Ignore Mac system files
 .DS_Store
+
+# Ignore media files (stored in Cloudinary)
 images/
