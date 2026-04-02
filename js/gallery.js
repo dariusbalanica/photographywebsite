@@ -12,47 +12,40 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 /**
- * Initialize gallery functionality
+ * Initialize gallery functionality - now handles dynamically created items
  */
 function initializeGallery() {
-  const galleryItems = document.querySelectorAll('.gallery-item');
-  
-  galleryItems.forEach((item, index) => {
-    // Make items focusable for accessibility
-    item.setAttribute('tabindex', '0');
-    item.setAttribute('role', 'button');
+  // Use event delegation for dynamically created items
+  document.addEventListener('click', function(e) {
+    const galleryItem = e.target.closest('.gallery-item');
+    if (!galleryItem) return;
     
-    const h3 = item.querySelector('h3');
-    if (h3) {
-      item.setAttribute('aria-label', `View ${h3.textContent} gallery`);
-    }
+    handleGalleryItemClick(galleryItem);
+  });
 
-    // Add click handler
-    item.addEventListener('click', function() {
-      handleGalleryItemClick(this, index);
-    });
-
-    // Add keyboard support
-    item.addEventListener('keydown', function(e) {
-      if (e.key === 'Enter' || e.key === ' ') {
+  // Keyboard support
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Enter' || e.key === ' ') {
+      const galleryItem = e.target.closest('.gallery-item');
+      if (galleryItem) {
         e.preventDefault();
-        handleGalleryItemClick(this, index);
+        handleGalleryItemClick(galleryItem);
       }
-    });
+    }
   });
 }
 
 /**
  * Handle gallery item clicks
  */
-function handleGalleryItemClick(item, index) {
+function handleGalleryItemClick(item) {
   const img = item.querySelector('img');
   if (!img) return;
 
-  // Check if we're on home page
-  const isHomePage = !window.location.hash || 
-                     window.location.hash === '#' || 
-                     window.location.hash === '#home';
+  // Check if we're on home page or portfolio listing
+  const hash = window.location.hash.slice(1) || 'home';
+  const route = hash.split('/')[0];
+  const isHomePage = route === 'home' || (route === 'portfolio' && !hash.split('/')[1]);
 
   if (isHomePage) {
     // Navigate to portfolio view
@@ -64,9 +57,9 @@ function handleGalleryItemClick(item, index) {
   }
 
   // On gallery detail pages, open lightbox
-  currentGalleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+  currentGalleryImages = Array.from(document.querySelectorAll('#project-gallery .gallery-item img'));
   currentImageIndex = currentGalleryImages.indexOf(img);
-  if (window.openLightbox) {
+  if (window.openLightbox && currentImageIndex >= 0) {
     window.openLightbox(currentImageIndex);
   }
 }

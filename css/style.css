@@ -124,14 +124,18 @@ nav.scrolled {
 /* Hero Section */
 .hero {
     height: 100vh;
-    background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('../images/gallery/natura/1.jpg');
+    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%), 
+                url('https://res.cloudinary.com/drvo7bgzt/image/upload/v1775158124/background_qpb7gg.jpg');
     background-size: cover;
     background-position: center;
+    background-attachment: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     color: white;
+    position: relative;
+    overflow: hidden;
 }
 
 .hero-content h1 {
@@ -622,12 +626,29 @@ footer {
     margin: 0 auto;
 }
 
-.about-detail h2 {
+.about-detail h2,
+.contact-detail h2 {
     text-align: center;
     font-size: 2.5rem;
     font-weight: 100;
     letter-spacing: 2px;
     margin-bottom: 40px;
+    color: #333;
+}
+
+/* Contact Detail Page */
+.contact-detail {
+    padding: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-detail .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
 }
 
 /* Portfolio Preview Section */

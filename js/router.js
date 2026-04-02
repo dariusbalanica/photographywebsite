@@ -7,6 +7,7 @@ class Router {
   constructor() {
     this.routes = {};
     this.currentRoute = 'home';
+    this.currentProjectId = null;
     this.init();
   }
 
@@ -155,6 +156,9 @@ function renderPortfolio(hash) {
     renderPortfolioListing();
     return;
   }
+  
+  // Store current project ID for language change updates
+  router.currentProjectId = projectId;
   
   const main = document.getElementById('main-content');
   if (!main) return;
@@ -451,4 +455,13 @@ document.addEventListener('DOMContentLoaded', () => {
   setTimeout(() => {
     router.start();
   }, 100);
+  
+  // Reload current gallery when language changes
+  if (window.i18n) {
+    i18n.onChange((lang) => {
+      if (router.currentProjectId) {
+        loadProjectGallery(router.currentProjectId);
+      }
+    });
+  }
 });
