@@ -18,15 +18,15 @@ A modern, bilingual single-page photography portfolio website built with vanilla
 
 ## 🎯 Overview
 
-This is a complete refactor of a traditional multi-page static website into a modern single-page application (SPA). The original site had **16 duplicate HTML files** (2 languages × 8 pages), resulting in code duplication and maintenance challenges. 
+A modern, minimalist photography portfolio website built entirely with vanilla JavaScript and CSS. This solution demonstrates how to build a feature-rich, production-ready web application without any build tools, frameworks, or external dependencies. Perfect for photographers who want full control over their online presence.
 
-The new architecture:
-- **Single `index.html`** entry point for entire application
-- **Dynamic routing** with hash-based navigation (`#home`, `#portfolio`, `#about`, etc.)
-- **Centralized translations** managed through JSON files (no duplication)
-- **Modular JavaScript** with clear separation of concerns
-- **Zero build tools** - deploy directly, no build step required
-- **100% vanilla JavaScript** - no frameworks, libraries, or npm dependencies
+Key architectural principles:
+- **Single `index.html`** entry point - entire application runs from one HTML file
+- **Client-side routing** with hash-based navigation (`#home`, `#portfolio/:id`, `#about`, etc.)
+- **Bilingual i18n system** using JSON translations with instant language switching
+- **Dynamic content rendering** via modular, maintainable JavaScript
+- **Zero friction deployment** - no build tools, no npm, no compilation needed
+- **Pure vanilla stack** - vanilla JavaScript, CSS Grid, and semantic HTML5
 
 ## ✨ Features
 

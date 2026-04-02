@@ -119,42 +119,6 @@ function loadImage(img) {
     newImg.src = img.src;
 }
 
-// Gallery filter functionality (for future use)
-function filterGallery(category) {
-    const items = document.querySelectorAll('.gallery-item');
-    
-    items.forEach(item => {
-        const itemCategory = item.querySelector('img').dataset.category;
-        
-        if (category === 'all' || itemCategory === category) {
-            item.style.display = 'block';
-            item.style.animation = 'fadeIn 0.3s ease forwards';
-        } else {
-            item.style.display = 'none';
-        }
-    });
-}
-
-// Preload gallery images for better performance
-function preloadGalleryImages() {
-    const thumbnails = [
-        'images/gallery/whysovertical/1.jpg',
-        'images/gallery/natura/1.jpg',
-        'images/gallery/aripi/1.jpg',
-        'images/gallery/montan/1.jpg',
-        'images/gallery/strada/1.jpg',
-        'images/gallery/tricolor/3.jpg'
-    ];
-    
-    thumbnails.forEach(src => {
-        const img = new Image();
-        img.src = src;
-    });
-}
-
-// Initialize preloading after a short delay
-setTimeout(preloadGalleryImages, 1000);
-
 // Lightbox functionality
 function setupLightbox() {
     // Create lightbox HTML if it doesn't exist
