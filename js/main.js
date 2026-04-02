@@ -17,6 +17,14 @@ function initializeNavigation() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
 
+  // Handle main nav links - let hash navigation work naturally
+  const navLinks = document.querySelectorAll('.nav-links:not(.lang-switch) a[href^="#"]');
+  navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+      // Hash change will be handled by router's hashchange listener
+    });
+  });
+
   // Update navbar state on scroll
   window.addEventListener('scroll', () => {
     updateNavbarState();

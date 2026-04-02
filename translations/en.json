@@ -86,6 +86,7 @@
   "common": {
     "viewMore": "View More",
     "backToHome": "Back to Home",
+    "backToPortfolio": "Back to Portfolio",
     "loading": "Loading...",
     "error": "Something went wrong",
     "notFound": "Page not found"

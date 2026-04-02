@@ -55,10 +55,31 @@ class Router {
    * Render route component
    */
   render(route, fullHash) {
+    // Update active nav link
+    this.updateActiveNavLink(route);
+    
+    // Scroll to top
+    window.scrollTo(0, 0);
+    
     const component = this.routes[route];
     if (typeof component === 'function') {
       component(fullHash);
     }
+  }
+
+  /**
+   * Update active nav link styling
+   */
+  updateActiveNavLink(route) {
+    const navLinks = document.querySelectorAll('.nav-links:not(.lang-switch) a');
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === `#${route}`) {
+        link.classList.add('active');
+      } else {
+        link.classList.remove('active');
+      }
+    });
   }
 
   /**
@@ -128,13 +149,20 @@ function renderHome() {
 // Portfolio Page - Full gallery view
 function renderPortfolio(hash) {
   const projectId = hash.split('/')[1];
+  
+  // If no project ID specified, show portfolio listing
+  if (!projectId) {
+    renderPortfolioListing();
+    return;
+  }
+  
   const main = document.getElementById('main-content');
   if (!main) return;
 
   main.innerHTML = `
     <section class="portfolio-detail">
       <div class="portfolio-header">
-        <a href="#home" class="back-link" data-i18n="common.backToHome">Back</a>
+        <a href="#portfolio" class="back-link" data-i18n="common.backToPortfolio">Back to Portfolio</a>
         <h2 id="project-title"></h2>
         <p id="project-desc"></p>
       </div>
@@ -150,6 +178,25 @@ function renderPortfolio(hash) {
 
   i18n.updateDOMTranslations();
   loadProjectGallery(projectId);
+}
+
+// Portfolio Listing - Show all projects
+function renderPortfolioListing() {
+  const main = document.getElementById('main-content');
+  if (!main) return;
+
+  main.innerHTML = `
+    <section class="portfolio-listing">
+      <div class="portfolio-header">
+        <h2 data-i18n="portfolio.title">Portfolio</h2>
+        <p data-i18n="portfolio.subtitle">Browse my photography projects</p>
+      </div>
+      <div class="gallery-grid" id="portfolio-gallery-list"></div>
+    </section>
+  `;
+
+  i18n.updateDOMTranslations();
+  loadPortfolioListing();
 }
 
 // Shop Page
@@ -203,6 +250,22 @@ function renderAboutPage() {
   i18n.updateDOMTranslations();
 }
 
+// Contact Page
+function renderContactPage() {
+  const main = document.getElementById('main-content');
+  if (!main) return;
+
+  main.innerHTML = `
+    <section class="contact-detail">
+      <h2 data-i18n="contact.title">Contact</h2>
+      <div class="contact-info" id="contact-links"></div>
+    </section>
+  `;
+
+  i18n.updateDOMTranslations();
+  loadSocialLinks();
+}
+
 /**
  * Helper Functions
  */
@@ -239,6 +302,38 @@ async function loadPortfolioPreview() {
   }
 }
 
+async function loadPortfolioListing() {
+  try {
+    const data = await fetch('data/portfolio.json').then(r => r.json());
+    const container = document.getElementById('portfolio-gallery-list');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    data.projects.forEach(project => {
+      const translations = i18n.getNamespace('portfolio');
+      const projectTrans = translations.projects[project.id];
+      
+      const item = document.createElement('div');
+      item.className = 'gallery-item';
+      item.innerHTML = `
+        <img src="${project.thumbnail}" alt="${projectTrans?.name || project.id}" loading="lazy">
+        <div class="gallery-overlay">
+          <h3>${projectTrans?.name || project.id}</h3>
+        </div>
+      `;
+      
+      item.addEventListener('click', () => {
+        window.location.hash = `#portfolio/${project.id}`;
+      });
+      
+      container.appendChild(item);
+    });
+  } catch (error) {
+    console.error('Error loading portfolio listing:', error);
+  }
+}
+
 async function loadProjectGallery(projectId) {
   try {
     const data = await fetch('data/portfolio.json').then(r => r.json());
@@ -267,7 +362,6 @@ async function loadProjectGallery(projectId) {
         <div class="gallery-overlay"></div>
       `;
       
-      item.addEventListener('click', () => openLightbox(i - 1));
       container.appendChild(item);
     }
 
@@ -279,6 +373,7 @@ async function loadProjectGallery(projectId) {
 
 function setupLightbox() {
   const images = document.querySelectorAll('#project-gallery img');
+  const galleryItems = document.querySelectorAll('#project-gallery .gallery-item');
   const lightbox = document.getElementById('lightbox');
   const lightboxImage = document.getElementById('lightbox-image');
 
@@ -291,6 +386,14 @@ function setupLightbox() {
   }
 
   window.openLightbox = openLightbox;
+
+  // Add click handlers to gallery items after lightbox setup
+  galleryItems.forEach((item, index) => {
+    item.addEventListener('click', (e) => {
+      e.preventDefault();
+      openLightbox(index);
+    });
+  });
 
   document.getElementById('lightbox-close').addEventListener('click', () => {
     lightbox.classList.remove('active');
@@ -318,7 +421,7 @@ function setupLightbox() {
 async function loadSocialLinks() {
   try {
     const config = await fetch('data/config.json').then(r => r.json());
-    const container = document.getElementById('social-links');
+    const container = document.getElementById('social-links') || document.getElementById('contact-links');
     if (!container || !config.social.instagram) return;
 
     const links = config.social.instagram.map(account => `
@@ -341,6 +444,7 @@ document.addEventListener('DOMContentLoaded', () => {
   router.register('shop', renderShop);
   router.register('blog', renderBlog);
   router.register('about', renderAboutPage);
+  router.register('contact', renderContactPage);
   
   // Start router after routes are registered and translations are loaded
   // Give i18n a moment to finish loading translations
