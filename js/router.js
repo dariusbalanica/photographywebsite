@@ -357,16 +357,18 @@ async function loadProjectGallery(projectId) {
     const container = document.getElementById('project-gallery');
     container.innerHTML = '';
 
-    // Generate gallery items (in production, fetch from actual image gallery)
-    for (let i = 1; i <= project.images; i++) {
-      const item = document.createElement('div');
-      item.className = 'gallery-item';
-      item.innerHTML = `
-        <img src="${project.thumbnail}" alt="Image ${i}" loading="lazy" data-image-index="${i - 1}">
-        <div class="gallery-overlay"></div>
-      `;
-      
-      container.appendChild(item);
+    // Load gallery items from the images array in portfolio.json
+    if (project.images && Array.isArray(project.images)) {
+      project.images.forEach((imageUrl, index) => {
+        const item = document.createElement('div');
+        item.className = 'gallery-item';
+        item.innerHTML = `
+          <img src="${imageUrl}" alt="Gallery image ${index + 1}" loading="lazy" data-image-index="${index}">
+          <div class="gallery-overlay"></div>
+        `;
+        
+        container.appendChild(item);
+      });
     }
 
     setupLightbox();

@@ -3,44 +3,125 @@
     {
       "id": "whysovertical",
       "slug": "whysovertical",
-      "images": 12,
-      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
-      "featured": true
+      "name": "Why So Vertical",
+      "description": "A vertical perspective on photography",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159307/1_rjpwl2.jpg",
+      "featured": true,
+      "images": [
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159307/1_rjpwl2.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159399/4_phhybq.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159307/3_ys278l.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159307/5_mkrkvc.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159306/11_rmxepl.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159306/9_redcbz.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159305/15_hvahf2.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159305/20_ygsqxn.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159304/16_xywxeq.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159304/19_yfrqdg.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159304/6_viw1nq.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159304/2_viylv4.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159304/17_qrkbpn.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159303/10_mrr0mx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159303/13_tdrxdm.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159303/12_g3nuyk.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159303/7_sktpxk.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159303/8_j0temy.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159302/14_ye4amk.jpg"
+      ]
     },
     {
       "id": "strada",
       "slug": "strada",
-      "images": 8,
-      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
-      "featured": true
+      "name": "Street Photography",
+      "description": "Urban captures and street moments",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "featured": true,
+      "images": [
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg"
+      ]
     },
     {
       "id": "aripi",
       "slug": "aripi",
-      "images": 10,
-      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
-      "featured": true
+      "name": "Wings",
+      "description": "Flying and birds in motion",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "featured": true,
+      "images": [
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg"
+      ]
+    },
+    {
+      "id": "aripi",
+      "slug": "aripi",
+      "name": "Wings",
+      "description": "Flying and birds in motion",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "featured": true,
+      "images": [
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg"
+      ]
     },
     {
       "id": "montan",
       "slug": "montan",
-      "images": 15,
-      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
-      "featured": true
+      "name": "Mountain",
+      "description": "Mountain landscapes and peaks",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "featured": true,
+      "images": [
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg"
+      ]
     },
     {
       "id": "tricolor",
       "slug": "tricolor",
-      "images": 9,
-      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
-      "featured": true
+      "name": "Tricolor",
+      "description": "Color studies and compositions",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "featured": true,
+      "images": [
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg"
+      ]
     },
     {
       "id": "natura",
       "slug": "natura",
-      "images": 11,
-      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
-      "featured": true
+      "name": "Nature",
+      "description": "Wildlife and natural scenes",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "featured": true,
+      "images": [
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+        "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg"
+      ]
     }
   ]
 }
