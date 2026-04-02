@@ -187,6 +187,7 @@ nav.scrolled {
     grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     gap: 30px;
     margin-bottom: 60px;
+    contain: layout style paint;
 }
 
 .gallery-item {
@@ -195,6 +196,8 @@ nav.scrolled {
     aspect-ratio: 4/3;
     cursor: pointer;
     transition: transform 0.3s ease;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .gallery-item:hover {
@@ -206,6 +209,8 @@ nav.scrolled {
     height: 100%;
     object-fit: cover;
     transition: transform 0.3s ease;
+    will-change: transform;
+    transform: translateZ(0);
 }
 
 .gallery-item:hover img {

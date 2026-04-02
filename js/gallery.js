@@ -65,7 +65,7 @@ function handleGalleryItemClick(item) {
 }
 
 /**
- * Lazy loading for gallery images
+ * Lazy loading for gallery images with performance optimizations
  */
 function setupImageLazyLoading() {
   const images = document.querySelectorAll('.gallery-item img');
@@ -79,6 +79,9 @@ function setupImageLazyLoading() {
           observer.unobserve(img);
         }
       });
+    }, {
+      rootMargin: '50px', // Preload images 50px before entering viewport
+      threshold: 0.01
     });
 
     images.forEach(img => imageObserver.observe(img));
@@ -89,14 +92,21 @@ function setupImageLazyLoading() {
 }
 
 /**
- * Load image with error handling
+ * Load image with error handling and Cloudinary optimization
  */
 function loadImage(img) {
-  const src = img.src || img.dataset.src;
+  let src = img.src || img.dataset.src;
   if (!src) return;
 
   // Already loaded
   if (img.classList.contains('loaded')) return;
+
+  // Optimize Cloudinary images
+  if (src.includes('res.cloudinary.com')) {
+    // Add Cloudinary optimization parameters
+    src = src.includes('?') ? src + '&' : src + '?';
+    src += 'q=auto&f=auto&w=600'; // Auto quality, auto format, max 600px width
+  }
 
   img.classList.add('loading');
   
@@ -110,13 +120,13 @@ function loadImage(img) {
   
   newImg.onerror = function() {
     img.classList.remove('loading');
-        img.classList.add('error');
-        // Fallback to placeholder
-        img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23f0f0f0" width="400" height="300"/><text x="200" y="150" text-anchor="middle" fill="%23999" font-size="16">Image not found</text></svg>';
-    };
-    
-    // Start loading
-    newImg.src = img.src;
+    img.classList.add('error');
+    // Fallback to placeholder
+    img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23f0f0f0" width="400" height="300"/><text x="200" y="150" text-anchor="middle" fill="%23999" font-size="16">Image not found</text></svg>';
+  };
+  
+  // Start loading
+  newImg.src = src;
 }
 
 // Lightbox functionality
