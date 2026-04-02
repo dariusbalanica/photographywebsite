@@ -179,7 +179,16 @@ function setupLightbox() {
 
     // Define and expose openLightbox function to window
     window.openLightbox = function(index) {
+        // Get elements fresh each time in case they don't exist yet
+        const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
+        
+        // Safety check - lightbox must be initialized first
+        if (!lightbox || !lightboxImg) {
+            console.error('Lightbox not initialized');
+            return;
+        }
+        
         const img = currentGalleryImages[index];
         if (img) {
             currentImageIndex = index;
