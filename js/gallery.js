@@ -131,8 +131,9 @@ function loadImage(img) {
 
 // Lightbox functionality
 function setupLightbox() {
-    // Create lightbox HTML if it doesn't exist
-    if (!document.getElementById('lightbox')) {
+    // Get or create lightbox HTML
+    let lightbox = document.getElementById('lightbox');
+    if (!lightbox) {
         const lightboxDiv = document.createElement('div');
         lightboxDiv.id = 'lightbox';
         lightboxDiv.className = 'lightbox';
@@ -157,6 +158,7 @@ function setupLightbox() {
             </span>
         `;
         document.body.appendChild(lightboxDiv);
+        lightbox = lightboxDiv;
 
         // Attach event listeners only once after creation
         document.getElementById('lightbox-arrow-left').onclick = function(e) {
@@ -174,6 +176,19 @@ function setupLightbox() {
             if (e.target === this) closeLightbox();
         };
     }
+
+    // Define and expose openLightbox function to window
+    window.openLightbox = function(index) {
+        const lightboxImg = document.getElementById('lightbox-img');
+        const img = currentGalleryImages[index];
+        if (img) {
+            currentImageIndex = index;
+            lightboxImg.src = img.src;
+            lightboxImg.alt = img.alt;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+    };
 
     // Keyboard navigation (attach only once)
     if (!window._lightboxKeyboardListener) {
