@@ -211,6 +211,43 @@ function setupLightbox() {
             }
         });
     }
+
+    // Swipe gesture support for mobile
+    if (!window._lightboxSwipeListener) {
+        window._lightboxSwipeListener = true;
+        let touchStartX = 0;
+        let touchEndX = 0;
+        
+        document.addEventListener('touchstart', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox && lightbox.style.display === 'flex') {
+                touchStartX = e.changedTouches[0].screenX;
+            }
+        }, false);
+        
+        document.addEventListener('touchend', function(e) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox && lightbox.style.display === 'flex') {
+                touchEndX = e.changedTouches[0].screenX;
+                handleSwipe();
+            }
+        }, false);
+        
+        function handleSwipe() {
+            const swipeThreshold = 50;
+            const diff = touchStartX - touchEndX;
+            
+            if (Math.abs(diff) > swipeThreshold) {
+                if (diff > 0) {
+                    // Swiped left - show next image
+                    showLightboxImage(currentImageIndex + 1);
+                } else {
+                    // Swiped right - show previous image
+                    showLightboxImage(currentImageIndex - 1);
+                }
+            }
+        }
+    }
 }
 
 function showLightboxImage(index) {
