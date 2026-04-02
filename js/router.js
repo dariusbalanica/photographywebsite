@@ -371,57 +371,12 @@ async function loadProjectGallery(projectId) {
       });
     }
 
+    // Reinitialize lazy loading and lightbox for new images
+    setupImageLazyLoading();
     setupLightbox();
   } catch (error) {
     console.error('Error loading project gallery:', error);
   }
-}
-
-function setupLightbox() {
-  const images = document.querySelectorAll('#project-gallery img');
-  const galleryItems = document.querySelectorAll('#project-gallery .gallery-item');
-  const lightbox = document.getElementById('lightbox');
-  const lightboxImage = document.getElementById('lightbox-image');
-
-  let currentIndex = 0;
-
-  function openLightbox(index) {
-    currentIndex = index;
-    lightboxImage.src = images[index].src;
-    lightbox.classList.add('active');
-  }
-
-  window.openLightbox = openLightbox;
-
-  // Add click handlers to gallery items after lightbox setup
-  galleryItems.forEach((item, index) => {
-    item.addEventListener('click', (e) => {
-      e.preventDefault();
-      openLightbox(index);
-    });
-  });
-
-  document.getElementById('lightbox-close').addEventListener('click', () => {
-    lightbox.classList.remove('active');
-  });
-
-  document.getElementById('lightbox-prev').addEventListener('click', () => {
-    currentIndex = (currentIndex - 1 + images.length) % images.length;
-    lightboxImage.src = images[currentIndex].src;
-  });
-
-  document.getElementById('lightbox-next').addEventListener('click', () => {
-    currentIndex = (currentIndex + 1) % images.length;
-    lightboxImage.src = images[currentIndex].src;
-  });
-
-  // Keyboard navigation
-  document.addEventListener('keydown', (e) => {
-    if (!lightbox.classList.contains('active')) return;
-    if (e.key === 'ArrowLeft') document.getElementById('lightbox-prev').click();
-    if (e.key === 'ArrowRight') document.getElementById('lightbox-next').click();
-    if (e.key === 'Escape') document.getElementById('lightbox-close').click();
-  });
 }
 
 async function loadSocialLinks() {
