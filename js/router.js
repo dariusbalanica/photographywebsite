@@ -371,9 +371,8 @@ async function loadProjectGallery(projectId) {
       });
     }
 
-    // Reinitialize lazy loading and lightbox for new images
+    // Reinitialize lazy loading for new images
     setupImageLazyLoading();
-    setupLightbox();
   } catch (error) {
     console.error('Error loading project gallery:', error);
   }

@@ -9,6 +9,7 @@ let currentImageIndex = 0;
 document.addEventListener('DOMContentLoaded', function() {
   initializeGallery();
   setupImageLazyLoading();
+  setupLightbox(); // Initialize lightbox on page load
 });
 
 /**
