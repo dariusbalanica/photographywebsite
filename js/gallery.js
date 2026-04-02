@@ -193,7 +193,19 @@ function setupLightbox() {
         const img = currentGalleryImages[index];
         if (img) {
             currentImageIndex = index;
-            lightboxImg.src = img.src;
+            
+            // Get the image URL and optimize for lightbox display
+            let lightboxSrc = img.src;
+            
+            // If it's a Cloudinary image, optimize for fullscreen viewing
+            if (lightboxSrc.includes('res.cloudinary.com')) {
+                // Remove existing optimization params if any
+                lightboxSrc = lightboxSrc.split('?')[0];
+                // Add lightbox-specific parameters: higher quality, fullscreen width
+                lightboxSrc += '?q=auto&f=auto&w=1920';
+            }
+            
+            lightboxImg.src = lightboxSrc;
             lightboxImg.alt = img.alt;
             lightbox.style.display = 'flex';
             document.body.style.overflow = 'hidden';

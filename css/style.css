@@ -1,34 +1,42 @@
-/* Reset and Base Styles */
+/* ============================================================ */
+/* Photography Portfolio - Main Stylesheet                     */
+/* ============================================================ */
+
+/* ============================================================ */
+/* 1. RESET AND BASE STYLES */
+/* ============================================================ */
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-/* Global Styles */
 body {
     font-family: "Raleway", Arial, Helvetica, sans-serif;
-    font-weight: 700;    /* Regular weight */
+    font-weight: 700;
     line-height: 1.6;
     color: #333;
     background: #fff;
 }
 
 h1, h2, h3 {
-    font-weight: 700; /* Bold */
+    font-weight: 700;
 }
 
 p {
-    font-weight: 300; /* Light */
+    font-weight: 300;
 }
 
-/* Disable image dragging and touch callout */
 img {
     -webkit-user-drag: none;
     -webkit-touch-callout: none;
 }
 
-/* Navigation */
+/* ============================================================ */
+/* 2. NAVIGATION */
+/* ============================================================ */
+
 nav {
     position: fixed;
     top: 0;
@@ -42,7 +50,7 @@ nav {
 
 nav.scrolled {
     background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
 }
 
 .nav-container {
@@ -101,14 +109,8 @@ nav.scrolled {
     font-weight: 700;
 }
 
-.active-lang {
-  font-weight: bold;
-  text-decoration: underline;
-}
-
-/* Reduce space between language switches */
 .lang-switch {
-    gap: 4px; /* or 0 for no space, or adjust as needed */
+    gap: 4px;
     display: flex;
     align-items: center;
     margin: 0;
@@ -121,11 +123,19 @@ nav.scrolled {
     padding: 0;
 }
 
-/* Hero Section */
+.active-lang {
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+/* ============================================================ */
+/* 3. HERO SECTION */
+/* ============================================================ */
+
 .hero {
     height: 100vh;
-    background: linear-gradient(135deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.2) 100%), 
-                url('https://res.cloudinary.com/drvo7bgzt/image/upload/v1775158124/background_qpb7gg.jpg');
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.2) 100%),
+        url('https://res.cloudinary.com/drvo7bgzt/image/upload/v1775158124/background_qpb7gg.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -166,7 +176,10 @@ nav.scrolled {
     }
 }
 
-/* Gallery Section */
+/* ============================================================ */
+/* 4. GALLERY */
+/* ============================================================ */
+
 .gallery {
     padding: 100px 40px;
     max-width: 1200px;
@@ -223,7 +236,7 @@ nav.scrolled {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0,0,0,0.7);
+    background: rgba(0, 0, 0, 0.7);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -242,456 +255,10 @@ nav.scrolled {
     letter-spacing: 1px;
 }
 
-/* Minimalistic lightbox overlay */
-.lightbox {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: rgba(20, 20, 20, 0.92);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10000;
-    transition: opacity 0.2s;
-}
+/* ============================================================ */
+/* 5. LIGHTBOX */
+/* ============================================================ */
 
-.lightbox[style*="display: none"] {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.lightbox-content {
-    max-width: 90vw;
-    max-height: 80vh;
-    border-radius: 6px;
-    box-shadow: 0 4px 32px rgba(0,0,0,0.25);
-    background: #fff;
-    object-fit: contain;
-}
-
-.lightbox-close {
-    position: absolute;
-    top: 32px;
-    right: 40px;
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-    z-index: 10000;
-    line-height: 1;
-    display: flex;
-    align-items: center;
-}
-.lightbox-close:hover {
-    opacity: 1;
-}
-.lightbox-close svg {
-    display: block;
-}
-
-.lightbox-arrow {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: none;
-    border: none;
-    padding: 0;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.2s;
-    z-index: 10001;
-    display: flex;
-    align-items: center;
-}
-.lightbox-arrow:hover {
-    opacity: 1;
-}
-.lightbox-arrow-left {
-    left: 24px;
-}
-.lightbox-arrow-right {
-    right: 24px;
-}
-.lightbox-arrow svg {
-    display: block;
-}
-
-/* About Section */
-.about {
-    background: #f8f8f8;
-    padding: 100px 40px;
-}
-
-.about-container {
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.about h2 {
-    font-size: 2.5rem;
-    font-weight: 100;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.about h3 {
-    font-size: 1.5rem;
-    font-weight: 100;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.about p {
-    font-size: 1.1rem;
-    line-height: 1.8;
-    color: #666;
-    margin-bottom: 30px;
-}
-
-/* Contact Section */
-.contact {
-    padding: 100px 40px;
-    max-width: 600px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.contact h2 {
-    font-size: 2.5rem;
-    font-weight: 100;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-.contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
-}
-
-.contact-item {
-    text-decoration: none;
-    color: #666;
-    font-weight: 300;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-.contact-item:hover {
-    color: #333;
-}
-
-.contact-item svg {
-    width: 32px;
-    height: 32px;
-    vertical-align: middle;
-    margin-right: 8px;
-}
-
-.sr-only {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    padding: 0;
-    margin: -1px;
-    overflow: hidden;
-    clip: rect(0,0,0,0);
-    border: 0;
-}
-
-/* Footer */
-footer {
-    background: #333;
-    color: white;
-    text-align: center;
-    padding: 40px;
-    font-weight: 300;
-    letter-spacing: 1px;
-}
-
-/* --- PRINTS SECTION --- */
-
-/* --- PRINTS SECTION --- */
-
-/* Offset prints section for navbar */
-.shop-prints {
-    margin-top: 100px;
-    scroll-margin-top: 100px;
-}
-
-/* Make gallery-item relative for overlay positioning */
-.shop-prints .gallery-item {
-    position: relative;
-}
-
-/* Overlay covers image, flex centers content, not clickable by default */
-.shop-prints .gallery-overlay {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    pointer-events: none;
-    transition: background 0.2s;
-}
-
-/* Overlay darkens on hover */
-.shop-prints .gallery-item:hover .gallery-overlay {
-    background: rgba(0,0,0,0.7);
-}
-
-/* Order link: minimalist, light text, only visible on hover */
-.shop-prints .gallery-overlay .order-link {
-    color: #fff;
-    font-family: inherit;
-    font-size: 1.3rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    opacity: 0;
-    pointer-events: auto;
-    transition: color 0.2s, opacity 0.2s;
-    text-shadow: 0 2px 8px rgba(0,0,0,0.15);
-    display: inline-block;
-    padding: 0 16px;
-    height: auto;
-    width: auto;
-    align-items: center;
-    justify-content: center;
-}
-.shop-prints .gallery-overlay .order-link:hover,
-.shop-prints .gallery-overlay .order-link:focus {
-    color: #eee;
-}
-.shop-prints .gallery-item:hover .gallery-overlay .order-link,
-.shop-prints .gallery-item:focus-within .gallery-overlay .order-link {
-    opacity: 1;
-}
-
-.shop-prints .gallery-grid {
-    padding-left: 40px;
-    padding-right: 40px;
-    /* Or use margin if you prefer: */
-    /* margin-left: 40px; margin-right: 40px; */
-    box-sizing: border-box;
-}
-
-/* --- WALLPAPERS SECTION --- */
-
-/* Download link: minimalist, dark text, only visible on hover */
-.download-link {
-    color: #333;
-    font-family: inherit;
-    font-size: 1.3rem;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-decoration: none;
-    background: none;
-    border: none;
-    cursor: pointer;
-    opacity: 0.85;
-    transition: color 0.2s, opacity 0.2s;
-    display: inline-block;
-}
-.download-link:hover,
-.download-link:focus {
-    color: #111;
-    opacity: 1;
-    text-decoration: none;
-}
-
-/* Download link only visible on hover */
-.shop-wallpapers .gallery-overlay .download-link {
-    opacity: 0;
-    transition: opacity 0.2s;
-}
-.shop-wallpapers .gallery-item:hover .gallery-overlay .download-link,
-.shop-wallpapers .gallery-item:focus-within .gallery-overlay .download-link {
-    opacity: 1;
-}
-
-/* Overlay lightens on hover */
-.shop-wallpapers .gallery-item .gallery-overlay {
-    transition: background 0.2s;
-}
-.shop-wallpapers .gallery-item:hover .gallery-overlay {
-    background: rgba(255,255,255,0.7);
-}
-
-.shop-wallpapers .gallery-grid {
-    padding-left: 40px;
-    padding-right: 40px;
-    /* Or use margin if you prefer: */
-    /* margin-left: 40px; margin-right: 40px; */
-    box-sizing: border-box;
-}
-
-/* --- NEW REFACTORED SYSTEM STYLES --- */
-
-/* Portfolio Detail Page */
-.portfolio-detail {
-    min-height: 60vh;
-    padding: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-.portfolio-header {
-    margin-bottom: 60px;
-    text-align: center;
-}
-
-.back-link {
-    display: inline-block;
-    margin-bottom: 30px;
-    font-size: 0.9rem;
-    color: #999;
-    text-decoration: none;
-    letter-spacing: 1px;
-    transition: color 0.3s ease;
-}
-
-.back-link:hover {
-    color: #333;
-}
-
-#project-title {
-    font-size: 2.5rem;
-    font-weight: 100;
-    letter-spacing: 2px;
-    margin-bottom: 15px;
-    color: #333;
-}
-
-#project-desc {
-    font-size: 1.1rem;
-    color: #666;
-    font-weight: 300;
-}
-
-#project-gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    gap: 20px;
-}
-
-/* Shop Section */
-.shop {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 40px;
-}
-
-.shop .section-title {
-    margin-bottom: 30px;
-}
-
-.shop .coming-soon {
-    font-size: 1.5rem;
-}
-
-/* Blog Section */
-.blog {
-    min-height: 60vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 60px 40px;
-}
-
-.blog .section-title {
-    margin-bottom: 30px;
-}
-
-.blog .coming-soon {
-    font-size: 1.5rem;
-}
-
-/* About Detail Page */
-.about-detail {
-    padding: 60px 40px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.about-detail h2,
-.contact-detail h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 100;
-    letter-spacing: 2px;
-    margin-bottom: 40px;
-    color: #333;
-}
-
-/* Contact Detail Page */
-.contact-detail {
-    padding: 60px 40px;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.contact-detail .contact-info {
-    display: flex;
-    justify-content: center;
-    gap: 40px;
-    margin-top: 40px;
-    flex-wrap: wrap;
-}
-
-/* Portfolio Preview Section */
-#portfolio-preview {
-    scroll-margin-top: 100px;
-}
-
-/* Social Links */
-#social-links {
-    margin-top: 20px;
-}
-
-/* Main Content Area */
-main {
-    min-height: 60vh;
-    margin-top: 80px;
-}
-
-/* Coming Soon Text */
-.coming-soon {
-    text-align: center;
-    font-size: 1.5rem;
-    color: #999;
-    padding: 60px 20px;
-    font-weight: 300;
-}
-
-/* Loading State */
-.loading {
-    opacity: 0.6;
-    transition: opacity 0.3s ease;
-}
-
-.loaded {
-    opacity: 1;
-}
-
-/* Lightbox Styles */
 .lightbox {
     display: none;
     position: fixed;
@@ -773,23 +340,419 @@ main {
     display: block;
 }
 
-/* Mobile lightbox adjustments */
+/* ============================================================ */
+/* 6. PAGE SECTIONS */
+/* ============================================================ */
+
+/* About Section */
+.about {
+    background: #f8f8f8;
+    padding: 100px 40px;
+}
+
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 2.5rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.about h3 {
+    font-size: 1.5rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.about p {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #666;
+    margin-bottom: 30px;
+}
+
+/* Contact Section */
+.contact {
+    padding: 100px 40px;
+    max-width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact h2 {
+    font-size: 2.5rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+}
+
+.contact-item {
+    text-decoration: none;
+    color: #666;
+    font-weight: 300;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.contact-item:hover {
+    color: #333;
+}
+
+.contact-item svg {
+    width: 32px;
+    height: 32px;
+    vertical-align: middle;
+    margin-right: 8px;
+}
+
+/* Shop Section */
+.shop {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+}
+
+/* Blog Section */
+.blog {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+}
+
+.shop .section-title,
+.blog .section-title {
+    margin-bottom: 30px;
+}
+
+/* ============================================================ */
+/* 7. DETAIL PAGES */
+/* ============================================================ */
+
+/* Portfolio Detail */
+.portfolio-detail {
+    min-height: 60vh;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    color: #999;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #333;
+}
+
+#project-title {
+    font-size: 2.5rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#project-desc {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 300;
+}
+
+#project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* About Detail */
+.about-detail {
+    padding: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-detail h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+/* Contact Detail */
+.contact-detail {
+    padding: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.contact-detail h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+    color: #333;
+}
+
+.contact-detail .contact-info {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    margin-top: 40px;
+    flex-wrap: wrap;
+}
+
+/* ============================================================ */
+/* 8. UTILITY CLASSES */
+/* ============================================================ */
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+}
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: #000;
+    color: white;
+    padding: 8px;
+    z-index: 100;
+    text-decoration: none;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+.coming-soon {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #999;
+    padding: 60px 20px;
+    font-weight: 300;
+}
+
+.loading {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.loaded {
+    opacity: 1;
+}
+
+/* ============================================================ */
+/* 9. LAYOUT */
+/* ============================================================ */
+
+main {
+    min-height: 60vh;
+    margin-top: 80px;
+}
+
+#portfolio-preview {
+    scroll-margin-top: 100px;
+}
+
+#social-links {
+    margin-top: 20px;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 40px;
+    font-weight: 300;
+    letter-spacing: 1px;
+}
+
+/* ============================================================ */
+/* 10. RESPONSIVE DESIGN */
+/* ============================================================ */
+
+/* Tablet (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .nav-container {
+        padding: 0 30px;
+    }
+
+    .gallery {
+        padding: 80px 30px;
+    }
+
+    .about,
+    .contact {
+        padding: 80px 30px;
+    }
+
+    .hero-content h1 {
+        font-size: 3.5rem;
+    }
+}
+
+/* Mobile (max-width: 768px) */
 @media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        gap: 20px;
+        padding: 0 20px;
+    }
+
+    .nav-links {
+        gap: 20px;
+    }
+
+    .hero-content h1 {
+        font-size: 2.5rem;
+        letter-spacing: 2px;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .gallery {
+        padding: 60px 20px;
+    }
+
+    .gallery-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .about,
+    .contact {
+        padding: 60px 20px;
+    }
+
+    .section-title,
+    .about h2,
+    .contact h2,
+    .about-detail h2,
+    .contact-detail h2 {
+        font-size: 2rem;
+    }
+
+    .contact-info {
+        flex-direction: column;
+        gap: 20px;
+    }
+
     .lightbox-content {
         max-width: 95vw;
         max-height: 85vh;
     }
-    
+
     .lightbox-close {
         top: 20px;
         right: 20px;
     }
-    
+
     .lightbox-arrow-left {
         left: 10px;
     }
-    
+
     .lightbox-arrow-right {
         right: 10px;
+    }
+}
+
+/* Small Mobile (max-width: 480px) */
+@media (max-width: 480px) {
+    .nav-container {
+        padding: 0 15px;
+    }
+
+    .nav-links {
+        gap: 15px;
+    }
+
+    .nav-links a {
+        font-size: 0.9rem;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+        letter-spacing: 1px;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
+    }
+
+    .gallery,
+    .about,
+    .contact {
+        padding: 50px 15px;
+    }
+
+    .section-title,
+    .about h2,
+    .contact h2 {
+        font-size: 1.8rem;
+        letter-spacing: 1px;
+    }
+
+    .about p {
+        font-size: 1rem;
+    }
+}
+
+/* Landscape Mobile (max-width: 768px and orientation: landscape) */
+@media (max-width: 768px) and (orientation: landscape) {
+    .hero {
+        height: 70vh;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 0.9rem;
     }
 }
