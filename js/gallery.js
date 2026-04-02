@@ -102,11 +102,11 @@ function loadImage(img) {
   // Already loaded
   if (img.classList.contains('loaded')) return;
 
-  // Optimize Cloudinary images
-  if (src.includes('res.cloudinary.com')) {
-    // Add Cloudinary optimization parameters
-    src = src.includes('?') ? src + '&' : src + '?';
-    src += 'q=auto&f=auto&w=600'; // Auto quality, auto format, max 600px width
+// Optimize Cloudinary images with aggressive caching
+    if (src.includes('res.cloudinary.com')) {
+      // Add Cloudinary optimization parameters for fast loading
+      src = src.split('?')[0]; // Remove existing params
+      src += '?q=auto&f=auto&w=600&dpr=auto&c=scale'; // Auto DPI, optimal quality, scale to exact width
   }
 
   img.classList.add('loading');
@@ -201,8 +201,8 @@ function setupLightbox() {
             if (lightboxSrc.includes('res.cloudinary.com')) {
                 // Remove existing optimization params if any
                 lightboxSrc = lightboxSrc.split('?')[0];
-                // Add lightbox-specific parameters: higher quality, fullscreen width
-                lightboxSrc += '?q=auto&f=auto&w=1920';
+                // Add lightbox-specific parameters: higher quality, fullscreen width, device pixel ratio, progressive JPEG
+                lightboxSrc += '?q=auto&f=auto&w=1920&dpr=auto&fl=progressive';
             }
             
             lightboxImg.src = lightboxSrc;
@@ -280,7 +280,16 @@ function showLightboxImage(index) {
     if (index >= currentGalleryImages.length) index = 0;
     currentImageIndex = index;
     const img = currentGalleryImages[currentImageIndex];
-    lightboxImg.src = img.src;
+    
+    // Apply fullscreen optimization like window.openLightbox does
+    let lightboxSrc = img.src;
+    if (lightboxSrc.includes('res.cloudinary.com')) {
+        // Remove existing params and apply fullscreen optimization
+        lightboxSrc = lightboxSrc.split('?')[0];
+        lightboxSrc += '?q=auto&f=auto&w=1920&dpr=auto';
+    }
+    
+    lightboxImg.src = lightboxSrc;
     lightboxImg.alt = img.alt;
     lightbox.style.display = 'flex';
     document.body.style.overflow = 'hidden'; // Prevent background scroll
