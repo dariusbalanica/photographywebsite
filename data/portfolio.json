@@ -1,0 +1,46 @@
+{
+  "projects": [
+    {
+      "id": "whysovertical",
+      "slug": "whysovertical",
+      "images": 12,
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
+      "featured": true
+    },
+    {
+      "id": "strada",
+      "slug": "strada",
+      "images": 8,
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
+      "featured": true
+    },
+    {
+      "id": "aripi",
+      "slug": "aripi",
+      "images": 10,
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
+      "featured": true
+    },
+    {
+      "id": "montan",
+      "slug": "montan",
+      "images": 15,
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
+      "featured": true
+    },
+    {
+      "id": "tricolor",
+      "slug": "tricolor",
+      "images": 9,
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
+      "featured": true
+    },
+    {
+      "id": "natura",
+      "slug": "natura",
+      "images": 11,
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1773567493/1_ypdvdo.jpg",
+      "featured": true
+    }
+  ]
+}

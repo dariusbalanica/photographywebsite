@@ -1,0 +1,93 @@
+{
+  "lang": "en",
+  "site": {
+    "title": "Darius Bălănică | Photography",
+    "description": "Amateur photographer capturing beauty in everyday moments and extraordinary occasions",
+    "author": "Darius Bălănică"
+  },
+  "nav": {
+    "home": "Home",
+    "portfolio": "Portfolio",
+    "shop": "Shop",
+    "blog": "Blog",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "CAPTURING MOMENTS",
+    "subtitle": "Photography & Visual Storytelling"
+  },
+  "portfolio": {
+    "title": "Portfolio",
+    "subtitle": "My photographic projects and explorations",
+    "projects": {
+      "whysovertical": {
+        "name": "Why So Vertical",
+        "description": "Exploring the beauty and perspective of vertical composition"
+      },
+      "strada": {
+        "name": "Street",
+        "description": "Urban photography capturing street life and moments"
+      },
+      "aripi": {
+        "name": "Wings",
+        "description": "Wildlife and nature photography featuring flight and movement"
+      },
+      "montan": {
+        "name": "Mountainous",
+        "description": "Mountain landscapes and high altitude photography"
+      },
+      "tricolor": {
+        "name": "Tricolor",
+        "description": "Studies in color, composition, and cultural photography"
+      },
+      "natura": {
+        "name": "Nature",
+        "description": "Natural landscapes and environmental photography"
+      }
+    }
+  },
+  "shop": {
+    "title": "Shop",
+    "subtitle": "Digital photos, prints, and merchandise",
+    "comingSoon": "Shop coming soon",
+    "categories": {
+      "digital": "Digital Downloads",
+      "prints": "Prints & Framing",
+      "merchandise": "Merchandise"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Photography insights, techniques, and stories",
+    "comingSoon": "Blog coming soon",
+    "readMore": "Read More"
+  },
+  "about": {
+    "title": "About",
+    "bio": "Amateur photographer passionate about capturing beauty in everyday moments and extraordinary occasions. My approach combines technical expertise with artistic vision to create images that tell captivating stories and evoke genuine emotions. Each photograph is crafted with attention to detail and a deep understanding of light, composition, and human connection.",
+    "equipment": "Equipment",
+    "equipmentList": "Nikon D5600 (Nikon AF-S DX 18-140mm lens), iPhone 13 Pro Max, GoPro Hero13",
+    "editing": "Editing Software",
+    "editingList": "Adobe Lightroom, Snapseed"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Get in touch and follow my work",
+    "followMe": "Follow Me",
+    "instagram": "Instagram",
+    "email": "Email"
+  },
+  "footer": {
+    "copyright": "© 2026 Darius Bălănică. All rights reserved.",
+    "privacyPolicy": "Privacy Policy",
+    "termsOfService": "Terms of Service"
+  },
+  "common": {
+    "viewMore": "View More",
+    "backToHome": "Back to Home",
+    "loading": "Loading...",
+    "error": "Something went wrong",
+    "notFound": "Page not found"
+  }
+}

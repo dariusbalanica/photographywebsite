@@ -1,103 +1,122 @@
-// Gallery-specific functionality
+/**
+ * Gallery-specific functionality
+ * Handles gallery item interactions and lightbox
+ */
 
 let currentGalleryImages = [];
 let currentImageIndex = 0;
 
 document.addEventListener('DOMContentLoaded', function() {
-    initializeGallery();
-    setupImageLazyLoading();
-    setupLightbox();
+  initializeGallery();
+  setupImageLazyLoading();
 });
 
-// Initialize gallery functionality
+/**
+ * Initialize gallery functionality
+ */
 function initializeGallery() {
-    const galleryItems = document.querySelectorAll('.gallery-item');
+  const galleryItems = document.querySelectorAll('.gallery-item');
+  
+  galleryItems.forEach((item, index) => {
+    // Make items focusable for accessibility
+    item.setAttribute('tabindex', '0');
+    item.setAttribute('role', 'button');
     
-    galleryItems.forEach((item, index) => {
-        // Add click handler for each gallery item
-        item.addEventListener('click', function() {
-            handleGalleryItemClick(this, index);
-        });
+    const h3 = item.querySelector('h3');
+    if (h3) {
+      item.setAttribute('aria-label', `View ${h3.textContent} gallery`);
+    }
 
-        // Add keyboard support
-        item.addEventListener('keydown', function(e) {
-            if (e.key === 'Enter' || e.key === ' ') {
-                e.preventDefault();
-                handleGalleryItemClick(this, index);
-            }
-        });
-
-        // Make items focusable for accessibility
-        item.setAttribute('tabindex', '0');
-        item.setAttribute('role', 'button');
-        item.setAttribute('aria-label', `View ${item.querySelector('h3').textContent} gallery`);
+    // Add click handler
+    item.addEventListener('click', function() {
+      handleGalleryItemClick(this, index);
     });
+
+    // Add keyboard support
+    item.addEventListener('keydown', function(e) {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        handleGalleryItemClick(this, index);
+      }
+    });
+  });
 }
 
-// Handle gallery item clicks
+/**
+ * Handle gallery item clicks
+ */
 function handleGalleryItemClick(item, index) {
-    const img = item.querySelector('img');
-    if (!img) return;
-    const category = img.dataset.category;
+  const img = item.querySelector('img');
+  if (!img) return;
 
-    // If on homepage, redirect
-    if (
-        window.location.pathname.endsWith('/index.html') ||
-        window.location.pathname.endsWith('/index-en.html') ||
-        window.location.pathname === '/' ||
-        window.location.pathname.endsWith('/Website/')
-    ) {
-        if (category) {
-            window.location.href = `pages/gallery-${category}.html`;
-        }
-        return;
+  // Check if we're on home page
+  const isHomePage = !window.location.hash || 
+                     window.location.hash === '#' || 
+                     window.location.hash === '#home';
+
+  if (isHomePage) {
+    // Navigate to portfolio view
+    const projectId = img.alt || img.dataset.category || '';
+    if (projectId) {
+      window.location.hash = `#portfolio/${projectId}`;
     }
+    return;
+  }
 
-    // On gallery pages, open lightbox with arrows
-    currentGalleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
-    currentImageIndex = currentGalleryImages.indexOf(img);
-    showLightboxImage(currentImageIndex);
+  // On gallery detail pages, open lightbox
+  currentGalleryImages = Array.from(document.querySelectorAll('.gallery-item img'));
+  currentImageIndex = currentGalleryImages.indexOf(img);
+  if (window.openLightbox) {
+    window.openLightbox(currentImageIndex);
+  }
 }
 
-// Lazy loading for gallery images
+/**
+ * Lazy loading for gallery images
+ */
 function setupImageLazyLoading() {
-    const images = document.querySelectorAll('.gallery-item img');
-    
-    // Check if Intersection Observer is supported
-    if ('IntersectionObserver' in window) {
-        const imageObserver = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const img = entry.target;
-                    loadImage(img);
-                    observer.unobserve(img);
-                }
-            });
-        });
+  const images = document.querySelectorAll('.gallery-item img');
+  
+  if ('IntersectionObserver' in window) {
+    const imageObserver = new IntersectionObserver((entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const img = entry.target;
+          loadImage(img);
+          observer.unobserve(img);
+        }
+      });
+    });
 
-        images.forEach(img => imageObserver.observe(img));
-    } else {
-        // Fallback for older browsers
-        images.forEach(img => loadImage(img));
-    }
+    images.forEach(img => imageObserver.observe(img));
+  } else {
+    // Fallback for older browsers
+    images.forEach(img => loadImage(img));
+  }
 }
 
-// Load image function
+/**
+ * Load image with error handling
+ */
 function loadImage(img) {
-    // Add loading class for smooth transition
-    img.classList.add('loading');
-    
-    // Create new image to preload
-    const newImg = new Image();
-    
-    newImg.onload = function() {
-        img.src = newImg.src;
-        img.classList.remove('loading');
-        img.classList.add('loaded');
-    };
-    
-    newImg.onerror = function() {
-        img.classList.remove('loading');
+  const src = img.src || img.dataset.src;
+  if (!src) return;
+
+  // Already loaded
+  if (img.classList.contains('loaded')) return;
+
+  img.classList.add('loading');
+  
+  const newImg = new Image();
+  
+  newImg.onload = function() {
+    img.src = newImg.src;
+    img.classList.remove('loading');
+    img.classList.add('loaded');
+  };
+  
+  newImg.onerror = function() {
+    img.classList.remove('loading');
         img.classList.add('error');
         // Fallback to placeholder
         img.src = 'data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"><rect fill="%23f0f0f0" width="400" height="300"/><text x="200" y="150" text-anchor="middle" fill="%23999" font-size="16">Image not found</text></svg>';

@@ -529,3 +529,138 @@ footer {
     /* margin-left: 40px; margin-right: 40px; */
     box-sizing: border-box;
 }
+
+/* --- NEW REFACTORED SYSTEM STYLES --- */
+
+/* Portfolio Detail Page */
+.portfolio-detail {
+    min-height: 60vh;
+    padding: 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.portfolio-header {
+    margin-bottom: 60px;
+    text-align: center;
+}
+
+.back-link {
+    display: inline-block;
+    margin-bottom: 30px;
+    font-size: 0.9rem;
+    color: #999;
+    text-decoration: none;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.back-link:hover {
+    color: #333;
+}
+
+#project-title {
+    font-size: 2.5rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+#project-desc {
+    font-size: 1.1rem;
+    color: #666;
+    font-weight: 300;
+}
+
+#project-gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+/* Shop Section */
+.shop {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+}
+
+.shop .section-title {
+    margin-bottom: 30px;
+}
+
+.shop .coming-soon {
+    font-size: 1.5rem;
+}
+
+/* Blog Section */
+.blog {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 60px 40px;
+}
+
+.blog .section-title {
+    margin-bottom: 30px;
+}
+
+.blog .coming-soon {
+    font-size: 1.5rem;
+}
+
+/* About Detail Page */
+.about-detail {
+    padding: 60px 40px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.about-detail h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 100;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+/* Portfolio Preview Section */
+#portfolio-preview {
+    scroll-margin-top: 100px;
+}
+
+/* Social Links */
+#social-links {
+    margin-top: 20px;
+}
+
+/* Main Content Area */
+main {
+    min-height: 60vh;
+    margin-top: 80px;
+}
+
+/* Coming Soon Text */
+.coming-soon {
+    text-align: center;
+    font-size: 1.5rem;
+    color: #999;
+    padding: 60px 20px;
+    font-weight: 300;
+}
+
+/* Loading State */
+.loading {
+    opacity: 0.6;
+    transition: opacity 0.3s ease;
+}
+
+.loaded {
+    opacity: 1;
+}

@@ -1,0 +1,93 @@
+{
+  "lang": "ro",
+  "site": {
+    "title": "Darius Bălănică | Fotografie",
+    "description": "Fotograf amator dedicat capturării frumuseții în momentele cotidiene și ocaziile extraordinare",
+    "author": "Darius Bălănică"
+  },
+  "nav": {
+    "home": "Acasă",
+    "portfolio": "Portofoliu",
+    "shop": "Magazin",
+    "blog": "Blog",
+    "about": "Despre",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "CAPTURÂND MOMENTE",
+    "subtitle": "Fotografie și Povestiri Vizuale"
+  },
+  "portfolio": {
+    "title": "Portofoliu",
+    "subtitle": "Proiectele și explorările mele fotografice",
+    "projects": {
+      "whysovertical": {
+        "name": "De ce atât de vertical",
+        "description": "Explorând frumusețea și perspectiva compoziției verticale"
+      },
+      "strada": {
+        "name": "Stradă",
+        "description": "Fotografie urbană capturând viața străzii și momente"
+      },
+      "aripi": {
+        "name": "Aripi",
+        "description": "Fotografie de faună și natură cu accent pe zbor și mișcare"
+      },
+      "montan": {
+        "name": "Munți",
+        "description": "Peisaje montane și fotografie la înălțimi mari"
+      },
+      "tricolor": {
+        "name": "Tricolor",
+        "description": "Studii despre culoare, compoziție și fotografie culturală"
+      },
+      "natura": {
+        "name": "Natură",
+        "description": "Peisaje naturale și fotografie de mediu"
+      }
+    }
+  },
+  "shop": {
+    "title": "Magazin",
+    "subtitle": "Fotografii digitale, tipărituri și merchandise",
+    "comingSoon": "Magazinul vine în curând",
+    "categories": {
+      "digital": "Descărcări Digitale",
+      "prints": "Tipărituri și Cadre",
+      "merchandise": "Merchandise"
+    }
+  },
+  "blog": {
+    "title": "Blog",
+    "subtitle": "Insights fotografie, tehnici și povești",
+    "comingSoon": "Blog vine în curând",
+    "readMore": "Citește Mai Mult"
+  },
+  "about": {
+    "title": "Despre",
+    "bio": "Fotograf amator pasionat, dedicat capturării frumuseții în momentele cotidiene și ocaziile extraordinare. Abordarea mea combină expertiza tehnică cu viziunea artistică pentru a crea imagini care spun povești captivante și evocă emoții autentice. Fiecare fotografie este realizată cu atenție la detalii și o înțelegere profundă a luminii, compoziției și conexiunii umane.",
+    "equipment": "Echipament",
+    "equipmentList": "Nikon D5600 (obiectiv Nikon AF-S DX 18-140mm), iPhone 13 Pro Max, GoPro Hero13",
+    "editing": "Software de Editare",
+    "editingList": "Adobe Lightroom, Snapseed"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Ia legătura și urmărește munca mea",
+    "followMe": "Urmărește-mă",
+    "instagram": "Instagram",
+    "email": "E-mail"
+  },
+  "footer": {
+    "copyright": "© 2026 Darius Bălănică. Toate drepturile rezervate.",
+    "privacyPolicy": "Politica de Confidențialitate",
+    "termsOfService": "Termeni și Condiții"
+  },
+  "common": {
+    "viewMore": "Vezi Mai Mult",
+    "backToHome": "Înapoi la Acasă",
+    "loading": "Se încarcă...",
+    "error": "Ceva nu a funcționat",
+    "notFound": "Pagina nu a fost găsită"
+  }
+}

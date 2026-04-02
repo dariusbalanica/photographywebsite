@@ -1,0 +1,21 @@
+{
+  "config": {
+    "siteName": "Darius Bălănică",
+    "defaultLanguage": "ro",
+    "supportedLanguages": ["ro", "en"],
+    "defaultCurrency": "RON",
+    "imageHost": "https://res.cloudinary.com/drvo7bgzt"
+  },
+  "social": {
+    "instagram": [
+      {
+        "username": "whysovertical",
+        "url": "https://instagram.com/whysovertical"
+      },
+      {
+        "username": "acolouristsview",
+        "url": "https://instagram.com/acolouristsview"
+      }
+    ]
+  }
+}
