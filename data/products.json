@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "slug": "vertical-collection-print",
+      "name": "Why So Vertical - Set of 3 Prints",
+      "price": 89.99,
+      "currency": "RON",
+      "image": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159307/1_rjpwl2.jpg",
+      "description": "Limited edition set of three prints from the Why So Vertical collection. Available in multiple sizes.",
+      "sizes": ["A4", "A3", "16x24"],
+      "inStock": true,
+      "featured": true
+    },
+    {
+      "id": 2,
+      "slug": "street-photography-book",
+      "name": "Urban Stories - Photography Book",
+      "price": 45.99,
+      "currency": "RON",
+      "image": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "description": "Coffee table book featuring street photography from urban exploration. Hardcover with premium paper quality.",
+      "pages": 128,
+      "inStock": true,
+      "featured": true
+    },
+    {
+      "id": 3,
+      "slug": "nature-landscape-frame",
+      "name": "Mountain Landscapes - Framed Print",
+      "price": 129.99,
+      "currency": "RON",
+      "image": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159307/1_rjpwl2.jpg",
+      "description": "Premium framed print from the Mountainous collection. Includes UV-protected glass and premium frame.",
+      "format": "Framed 16x24",
+      "inStock": true,
+      "featured": false
+    },
+    {
+      "id": 4,
+      "slug": "professional-portfolio",
+      "name": "Portfolio Showcase - Leather Bound",
+      "price": 199.99,
+      "currency": "RON",
+      "image": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "description": "Custom leather-bound portfolio showcasing your best work. Includes 20 high-quality prints.",
+      "items": 20,
+      "inStock": false,
+      "featured": false
+    },
+    {
+      "id": 5,
+      "slug": "canvas-print-large",
+      "name": "Wings in Flight - Canvas Print",
+      "price": 159.99,
+      "currency": "RON",
+      "image": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159307/1_rjpwl2.jpg",
+      "description": "Large canvas print featuring wildlife photography. Ready to hang with stretcher frame.",
+      "size": "40x60",
+      "inStock": true,
+      "featured": false
+    },
+    {
+      "id": 6,
+      "slug": "photography-workshops",
+      "name": "Professional Photography Workshop",
+      "price": 299.99,
+      "currency": "RON",
+      "image": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "description": "4-week online workshop covering composition, lighting, post-processing, and professional techniques.",
+      "duration": "4 weeks",
+      "inStock": true,
+      "featured": true
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "slug": "mastering-composition",
+      "title": "Mastering Composition: The Rule of Thirds and Beyond",
+      "author": "Darius Bălănică",
+      "date": "2026-04-15",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159307/1_rjpwl2.jpg",
+      "excerpt": "Learn the fundamental principles of photographic composition including the rule of thirds, leading lines, and framing techniques that will elevate your photography.",
+      "content": "Composition is the foundation of great photography. In this comprehensive guide, we explore how to arrange visual elements to create compelling images. Master the rule of thirds, discover leading lines, and understand framing techniques.",
+      "readTime": "5 min"
+    },
+    {
+      "id": 2,
+      "slug": "golden-hour-photography",
+      "title": "Golden Hour Magic: Capturing Perfect Light",
+      "author": "Darius Bălănică",
+      "date": "2026-04-10",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "excerpt": "Discover why the golden hour is every photographer's favorite time of day and learn techniques to maximize this magical light for stunning portraits and landscapes.",
+      "content": "The golden hour occurs shortly after sunrise or before sunset. During this time, the sun is low on the horizon, creating warm, soft light that's perfect for photography. Learn positioning, camera settings, and post-processing techniques.",
+      "readTime": "7 min"
+    },
+    {
+      "id": 3,
+      "slug": "wildlife-photography-tips",
+      "title": "Wildlife Photography: Patience, Technique, and Ethics",
+      "author": "Darius Bălănică",
+      "date": "2026-04-01",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159307/1_rjpwl2.jpg",
+      "excerpt": "Explore essential techniques for photographing wildlife while maintaining ethical practices and respecting nature. Includes equipment recommendations and location scouting tips.",
+      "content": "Wildlife photography combines technical skill with patience and respect for nature. This guide covers the essential equipment, settings, and techniques needed to capture stunning wildlife images responsibly.",
+      "readTime": "8 min"
+    },
+    {
+      "id": 4,
+      "slug": "urban-street-photography",
+      "title": "Urban Exploration: Finding Stories in the Streets",
+      "author": "Darius Bălănică",
+      "date": "2026-03-25",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "excerpt": "Street photography captures human moments and urban life. Learn how to approach subjects respectfully, compose for storytelling, and use legal and ethical practices.",
+      "content": "Street photography is about capturing authentic moments and telling stories through images. This article covers composition techniques, working with light, approaching subjects, and legal considerations.",
+      "readTime": "6 min"
+    },
+    {
+      "id": 5,
+      "slug": "post-processing-workflow",
+      "title": "Developing Your Post-Processing Workflow",
+      "author": "Darius Bălănică",
+      "date": "2026-03-15",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775159307/1_rjpwl2.jpg",
+      "excerpt": "Learn a systematic approach to post-processing that preserves the integrity of your images while enhancing their visual impact. Includes software recommendations and editing principles.",
+      "content": "Post-processing is where you refine your vision. Discover a structured workflow for color correction, exposure adjustment, and creative editing using industry-standard software.",
+      "readTime": "9 min"
+    },
+    {
+      "id": 6,
+      "slug": "camera-settings-explained",
+      "title": "Camera Settings Explained: Aperture, Shutter, and ISO",
+      "author": "Darius Bălănică",
+      "date": "2026-03-01",
+      "thumbnail": "https://res.cloudinary.com/drvo7bgzt/image/upload/v1775160385/1_okagwx.jpg",
+      "excerpt": "Master the exposure triangle: understand how aperture, shutter speed, and ISO work together to control exposure, depth of field, and motion in your photographs.",
+      "content": "The exposure triangle consists of three fundamental camera settings. This comprehensive guide explains how each works and how to balance them for different photographic situations.",
+      "readTime": "10 min"
+    }
+  ]
+}

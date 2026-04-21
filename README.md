@@ -32,7 +32,7 @@ Key architectural principles:
 
 ### User-Facing Features
 - **🌍 Bilingual Support** - Instant language switching between Romanian and English
-- **📱 Fully Responsive** - Mobile-first design optimized for all screen sizes
+- **📱 Fully Responsive** - Mobile-first design optimized for all screen sizes (320px - 2560px)
 - **🎴 Dynamic Galleries** - Six photography project galleries with categories:
   - Why So Vertical (vertical composition studies)
   - Street (urban photography)
@@ -40,10 +40,29 @@ Key architectural principles:
   - Mountainous (landscapes)
   - Tricolor (color & cultural studies)
   - Nature (environmental photography)
+- **📝 Blog Section** - 6 professional blog posts with images, dates, and excerpts:
+  - Mastering Composition
+  - Golden Hour Magic
+  - Wildlife Photography Tips
+  - Urban Street Photography
+  - Post-Processing Workflow
+  - Camera Settings Explained
+- **🛍️ Online Shop** - E-commerce section with 6 products:
+  - Photography prints and sets
+  - Coffee table books
+  - Framed prints
+  - Canvas prints
+  - Photography workshops
+  - Professional portfolios
+- **💌 Contact Section** - Professional contact form with:
+  - Name, email, subject, and message fields
+  - Newsletter signup capability
+  - Real-time form validation
+  - Success/error feedback
 - **🖼️ Lightbox Viewer** - Click images to view in fullscreen with navigation
 - **🎨 Hero Background** - Cloudinary-hosted hero image with parallax scrolling
-- **📖 Dynamic Sections** - Home, Portfolio, Shop, Blog, About, Contact pages
-- **♿ Accessible** - Keyboard navigation, WCAG compliance, semantic HTML
+- **📖 Dynamic Sections** - Home, Portfolio, Blog, Shop, About, Contact pages
+- **♿ Accessible** - Keyboard navigation, WCAG compliance, semantic HTML5 with ARIA labels
 - **⌨️ Keyboard Support** - Arrow keys for lightbox, Enter/Space to activate, Escape to close
 
 ### Developer Features

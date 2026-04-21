@@ -50,18 +50,17 @@
   "shop": {
     "title": "Magazin",
     "subtitle": "Fotografii digitale, tipărituri și merchandise",
-    "comingSoon": "Magazinul vine în curând",
-    "categories": {
-      "digital": "Descărcări Digitale",
-      "prints": "Tipărituri și Cadre",
-      "merchandise": "Merchandise"
-    }
+    "viewDetails": "Vezi Detalii",
+    "addToCart": "Adaugă în Coș",
+    "outOfStock": "Indisponibil",
+    "pricing": "Începând de la"
   },
   "blog": {
     "title": "Blog",
     "subtitle": "Insights fotografie, tehnici și povești",
-    "comingSoon": "Blog vine în curând",
-    "readMore": "Citește Mai Mult"
+    "readMore": "Citește Articolul",
+    "updated": "Actualizat",
+    "minuteRead": "min citire"
   },
   "about": {
     "title": "Despre",
@@ -73,10 +72,18 @@
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Ia legătura și urmărește munca mea",
-    "followMe": "Urmărește-mă",
-    "instagram": "Instagram",
-    "email": "E-mail"
+    "subtitle": "Întrebări? Aș fi fericit să aud de la tine",
+    "description": "Ia legătura cu mine pentru întrebări, colaborări, sau pur și simplu pentru a saluta. Răspund la toate mesajele în maximum 48 de ore.",
+    "name": "Nume",
+    "email": "E-mail",
+    "subject": "Subiect",
+    "message": "Mesaj",
+    "send": "Trimite Mesaj",
+    "followMe": "Urmărește Munca Mea",
+    "newsletter": "Newsletter",
+    "newsletterDescription": "Abonează-te pentru a primi sfaturi fotografice, actualizări despre lucrări noi și conținut exclusiv direct în inboxul tău.",
+    "newsletterEmail": "Introduceți e-mailul",
+    "subscribe": "Abonează-te"
   },
   "footer": {
     "copyright": "© 2026 Darius Bălănică. Toate drepturile rezervate.",

@@ -50,18 +50,17 @@
   "shop": {
     "title": "Shop",
     "subtitle": "Digital photos, prints, and merchandise",
-    "comingSoon": "Shop coming soon",
-    "categories": {
-      "digital": "Digital Downloads",
-      "prints": "Prints & Framing",
-      "merchandise": "Merchandise"
-    }
+    "viewDetails": "View Details",
+    "addToCart": "Add to Cart",
+    "outOfStock": "Out of Stock",
+    "pricing": "Starting from"
   },
   "blog": {
     "title": "Blog",
     "subtitle": "Photography insights, techniques, and stories",
-    "comingSoon": "Blog coming soon",
-    "readMore": "Read More"
+    "readMore": "Read Article",
+    "updated": "Updated",
+    "minuteRead": "min read"
   },
   "about": {
     "title": "About",
@@ -73,10 +72,18 @@
   },
   "contact": {
     "title": "Contact",
-    "subtitle": "Get in touch and follow my work",
-    "followMe": "Follow Me",
-    "instagram": "Instagram",
-    "email": "Email"
+    "subtitle": "Questions? I'd love to hear from you",
+    "description": "Get in touch with me for inquiries, collaborations, or just to say hello. I reply to all messages within 48 hours.",
+    "name": "Name",
+    "email": "Email",
+    "subject": "Subject",
+    "message": "Message",
+    "send": "Send Message",
+    "followMe": "Follow My Work",
+    "newsletter": "Newsletter",
+    "newsletterDescription": "Subscribe to receive photography tips, updates about new work, and exclusive content directly to your inbox.",
+    "newsletterEmail": "Enter your email",
+    "subscribe": "Subscribe"
   },
   "footer": {
     "copyright": "© 2026 Darius Bălănică. All rights reserved.",

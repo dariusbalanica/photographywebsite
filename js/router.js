@@ -209,13 +209,19 @@ function renderShop() {
   if (!main) return;
 
   main.innerHTML = `
-    <section class="shop" id="shop">
-      <h2 class="section-title" data-i18n="shop.title">Shop</h2>
-      <p class="coming-soon" data-i18n="shop.comingSoon">Coming Soon</p>
+    <section id="shop-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="shop.title">Shop</h2>
+          <p data-i18n="shop.subtitle"></p>
+        </div>
+        <div class="shop-grid" id="shop-products"></div>
+      </div>
     </section>
   `;
 
   i18n.updateDOMTranslations();
+  loadShopProducts();
 }
 
 // Blog Page
@@ -224,13 +230,19 @@ function renderBlog() {
   if (!main) return;
 
   main.innerHTML = `
-    <section class="blog" id="blog">
-      <h2 class="section-title" data-i18n="blog.title">Blog</h2>
-      <p class="coming-soon" data-i18n="blog.comingSoon">Coming Soon</p>
+    <section id="blog-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="blog.title">Blog</h2>
+          <p data-i18n="blog.subtitle"></p>
+        </div>
+        <div class="blog-grid" id="blog-posts"></div>
+      </div>
     </section>
   `;
 
   i18n.updateDOMTranslations();
+  loadBlogPosts();
 }
 
 // About Page
@@ -239,14 +251,23 @@ function renderAboutPage() {
   if (!main) return;
 
   main.innerHTML = `
-    <section class="about-detail">
-      <h2 data-i18n="about.title">About Me</h2>
-      <div class="about-container">
-        <p data-i18n="about.bio"></p>
-        <h3 data-i18n="about.equipment">Equipment</h3>
-        <p data-i18n="about.equipmentList"></p>
-        <h3 data-i18n="about.editing">Editing Software</h3>
-        <p data-i18n="about.editingList"></p>
+    <section id="about-section">
+      <div class="container about-content">
+        <div class="section-header">
+          <h2 data-i18n="about.title">About</h2>
+        </div>
+        <div class="about-grid">
+          <div class="about-text">
+            <p data-i18n="about.bio"></p>
+            <h3 data-i18n="about.equipment"></h3>
+            <p data-i18n="about.equipmentList"></p>
+            <h3 data-i18n="about.editing"></h3>
+            <p data-i18n="about.editingList"></p>
+          </div>
+          <div class="about-image">
+            <img src="https://res.cloudinary.com/drvo7bgzt/image/upload/v1775158124/background_qpb7gg.jpg" alt="About">
+          </div>
+        </div>
       </div>
     </section>
   `;
@@ -260,14 +281,41 @@ function renderContactPage() {
   if (!main) return;
 
   main.innerHTML = `
-    <section class="contact-detail">
-      <h2 data-i18n="contact.title">Contact</h2>
-      <div class="contact-info" id="contact-links"></div>
+    <section id="contact-section">
+      <div class="container">
+        <div class="section-header">
+          <h2 data-i18n="contact.title">Contact</h2>
+          <p data-i18n="contact.description"></p>
+        </div>
+        <div class="contact-content">
+          <form class="newsletter-form" id="contact-form">
+            <div class="form-group">
+              <label for="contact-name" data-i18n="contact.name">Name</label>
+              <input type="text" id="contact-name" name="name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email" data-i18n="contact.email">Email</label>
+              <input type="email" id="contact-email" name="email" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject" data-i18n="contact.subject">Subject</label>
+              <input type="text" id="contact-subject" name="subject" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-message" data-i18n="contact.message">Message</label>
+              <textarea id="contact-message" name="message" rows="6" required></textarea>
+            </div>
+            <button type="submit" class="submit-btn" data-i18n="contact.send">Send</button>
+          </form>
+        </div>
+        <div class="social-links" id="social-links"></div>
+      </div>
     </section>
   `;
 
   i18n.updateDOMTranslations();
   loadSocialLinks();
+  setupContactForm();
 }
 
 /**
@@ -381,12 +429,12 @@ async function loadProjectGallery(projectId) {
 async function loadSocialLinks() {
   try {
     const config = await fetch('data/config.json').then(r => r.json());
-    const container = document.getElementById('social-links') || document.getElementById('contact-links');
+    const container = document.getElementById('social-links');
     if (!container || !config.social.instagram) return;
 
     const links = config.social.instagram.map(account => `
       <a href="${account.url}" class="contact-item" target="_blank" rel="noopener" aria-label="Instagram">
-        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="#666" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="#666" stroke-width="2"/><circle cx="17" cy="7" r="1" fill="#666"/></svg>
+        <svg viewBox="0 0 24 24" fill="none"><rect x="2" y="2" width="20" height="20" rx="6" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="5" stroke="white" stroke-width="2"/><circle cx="17" cy="7" r="1" fill="white"/></svg>
         ${account.username}
       </a>
     `).join('');
@@ -395,6 +443,102 @@ async function loadSocialLinks() {
   } catch (error) {
     console.error('Error loading social links:', error);
   }
+}
+
+async function loadBlogPosts() {
+  try {
+    const data = await fetch('data/blog.json').then(r => r.json());
+    const container = document.getElementById('blog-posts');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    data.posts.forEach(post => {
+      const date = new Date(post.date).toLocaleDateString(i18n.getLanguage() === 'ro' ? 'ro-RO' : 'en-US', {
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      });
+
+      const item = document.createElement('div');
+      item.className = 'blog-card';
+      item.innerHTML = `
+        <div class="blog-image">
+          <img src="${post.thumbnail}" alt="${post.title}" loading="lazy">
+        </div>
+        <div class="blog-content">
+          <div class="blog-date">${date}</div>
+          <h3>${post.title}</h3>
+          <p class="blog-excerpt">${post.excerpt}</p>
+          <a href="#blog/${post.slug}" class="read-more" data-i18n="blog.readMore">Read More</a>
+        </div>
+      `;
+      
+      container.appendChild(item);
+    });
+  } catch (error) {
+    console.error('Error loading blog posts:', error);
+  }
+}
+
+async function loadShopProducts() {
+  try {
+    const data = await fetch('data/products.json').then(r => r.json());
+    const container = document.getElementById('shop-products');
+    if (!container) return;
+
+    container.innerHTML = '';
+
+    data.products.forEach(product => {
+      const priceDisplay = product.inStock ? `${product.price} ${product.currency}` : i18n.t('shop.outOfStock');
+      
+      const item = document.createElement('div');
+      item.className = 'product-card';
+      item.innerHTML = `
+        <div class="product-image">
+          <img src="${product.image}" alt="${product.name}" loading="lazy">
+        </div>
+        <h3 class="product-name">${product.name}</h3>
+        <div class="product-price">${priceDisplay}</div>
+        <button class="add-to-cart" ${product.inStock ? '' : 'disabled'} data-i18n="shop.addToCart">Add to Cart</button>
+      `;
+      
+      container.appendChild(item);
+    });
+  } catch (error) {
+    console.error('Error loading shop products:', error);
+  }
+}
+
+function setupContactForm() {
+  const form = document.getElementById('contact-form');
+  if (!form) return;
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    
+    const formData = {
+      name: document.getElementById('contact-name').value,
+      email: document.getElementById('contact-email').value,
+      subject: document.getElementById('contact-subject').value,
+      message: document.getElementById('contact-message').value
+    };
+
+    // Simulate form submission (in production, send to backend)
+    console.log('Form submitted:', formData);
+    
+    // Show success message
+    const submitBtn = form.querySelector('.submit-btn');
+    const originalText = submitBtn.textContent;
+    submitBtn.textContent = 'Message Sent! Thank you.';
+    submitBtn.disabled = true;
+    
+    setTimeout(() => {
+      form.reset();
+      submitBtn.textContent = originalText;
+      submitBtn.disabled = false;
+    }, 3000);
+  });
 }
 
 // Register routes and start router
