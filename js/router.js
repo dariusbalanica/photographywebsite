@@ -172,12 +172,6 @@ function renderPortfolio(hash) {
       </div>
       <div class="gallery-grid" id="project-gallery"></div>
     </section>
-    <div id="lightbox" class="lightbox">
-      <span id="lightbox-close" class="lightbox-close">&times;</span>
-      <img id="lightbox-image" src="" alt="">
-      <button id="lightbox-prev" class="lightbox-prev">&#10094;</button>
-      <button id="lightbox-next" class="lightbox-next">&#10095;</button>
-    </div>
   `;
 
   i18n.updateDOMTranslations();

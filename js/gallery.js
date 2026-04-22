@@ -132,9 +132,11 @@ function loadImage(img) {
 
 // Lightbox functionality
 function setupLightbox() {
+    console.log('setupLightbox called');
     // Get or create lightbox HTML
     let lightbox = document.getElementById('lightbox');
     if (!lightbox) {
+        console.log('Creating lightbox element...');
         const lightboxDiv = document.createElement('div');
         lightboxDiv.id = 'lightbox';
         lightboxDiv.className = 'lightbox';
@@ -161,29 +163,44 @@ function setupLightbox() {
         `;
         document.body.appendChild(lightboxDiv);
         lightbox = lightboxDiv;
+        console.log('Lightbox created and appended to DOM');
+        console.log('Lightbox HTML:', lightbox);
 
         // Attach event listeners only once after creation
         document.getElementById('lightbox-arrow-left').onclick = function(e) {
+            console.log('Left arrow clicked');
             e.stopPropagation();
             showLightboxImage(currentImageIndex - 1);
         };
         document.getElementById('lightbox-arrow-right').onclick = function(e) {
+            console.log('Right arrow clicked');
             e.stopPropagation();
             showLightboxImage(currentImageIndex + 1);
         };
-        document.getElementById('lightbox-close').onclick = function() {
+        document.getElementById('lightbox-close').onclick = function(e) {
+            console.log('Close button clicked');
+            e.stopPropagation();
             closeLightbox();
         };
         document.getElementById('lightbox').onclick = function(e) {
-            if (e.target === this) closeLightbox();
+            if (e.target === this) {
+                console.log('Lightbox background clicked');
+                closeLightbox();
+            }
         };
     }
 
     // Define and expose openLightbox function to window
     window.openLightbox = function(index) {
+        console.log('openLightbox called with index:', index);
+        console.log('currentGalleryImages:', currentGalleryImages);
+        
         // Get elements fresh each time in case they don't exist yet
         const lightbox = document.getElementById('lightbox');
         const lightboxImg = document.getElementById('lightbox-img');
+        
+        console.log('lightbox element:', lightbox);
+        console.log('lightboxImg element:', lightboxImg);
         
         // Safety check - lightbox must be initialized first
         if (!lightbox || !lightboxImg) {
@@ -192,11 +209,14 @@ function setupLightbox() {
         }
         
         const img = currentGalleryImages[index];
+        console.log('img from array:', img);
+        
         if (img) {
             currentImageIndex = index;
             
             // Get the image URL and optimize for lightbox display
             let lightboxSrc = img.src;
+            console.log('Original img.src:', lightboxSrc);
             
             // If it's a Cloudinary image, optimize for fullscreen viewing
             if (lightboxSrc.includes('res.cloudinary.com')) {
@@ -206,9 +226,13 @@ function setupLightbox() {
                 lightboxSrc += '?q=auto&f=auto&w=1920&dpr=auto&fl=progressive';
             }
             
+            console.log('Final lightboxSrc:', lightboxSrc);
+            
             lightboxImg.src = lightboxSrc;
             lightboxImg.alt = img.alt;
+            console.log('Setting lightbox to active');
             lightbox.classList.add('active');
+            console.log('lightbox classes:', lightbox.className);
             document.body.style.overflow = 'hidden';
         }
     };
