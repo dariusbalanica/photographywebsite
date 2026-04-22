@@ -138,25 +138,26 @@ function setupLightbox() {
         const lightboxDiv = document.createElement('div');
         lightboxDiv.id = 'lightbox';
         lightboxDiv.className = 'lightbox';
-        lightboxDiv.style.display = 'none';
         lightboxDiv.innerHTML = `
-            <span class="lightbox-arrow lightbox-arrow-left" id="lightbox-arrow-left">
+            <div class="lightbox-content">
+                <img class="lightbox-image" id="lightbox-img" src="" alt="">
+            </div>
+            <button class="lightbox-nav lightbox-prev" id="lightbox-arrow-left">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                     <polyline points="20,8 12,16 20,24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-            </span>
-            <img class="lightbox-content" id="lightbox-img" src="" alt="">
-            <span class="lightbox-arrow lightbox-arrow-right" id="lightbox-arrow-right">
+            </button>
+            <button class="lightbox-nav lightbox-next" id="lightbox-arrow-right">
                 <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
                     <polyline points="12,8 20,16 12,24" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
-            </span>
-            <span class="lightbox-close" id="lightbox-close">
+            </button>
+            <button class="lightbox-close" id="lightbox-close">
                 <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
                     <line x1="7" y1="7" x2="21" y2="21" stroke="white" stroke-width="2" stroke-linecap="round"/>
                     <line x1="21" y1="7" x2="7" y2="21" stroke="white" stroke-width="2" stroke-linecap="round"/>
                 </svg>
-            </span>
+            </button>
         `;
         document.body.appendChild(lightboxDiv);
         lightbox = lightboxDiv;
@@ -207,7 +208,7 @@ function setupLightbox() {
             
             lightboxImg.src = lightboxSrc;
             lightboxImg.alt = img.alt;
-            lightbox.style.display = 'flex';
+            lightbox.classList.add('active');
             document.body.style.overflow = 'hidden';
         }
     };
@@ -217,7 +218,7 @@ function setupLightbox() {
         window._lightboxKeyboardListener = true;
         document.addEventListener('keydown', function(e) {
             const lightbox = document.getElementById('lightbox');
-            if (!lightbox || lightbox.style.display !== 'flex') return;
+            if (!lightbox || !lightbox.classList.contains('active')) return;
             if (e.key === 'ArrowLeft') showLightboxImage(currentImageIndex - 1);
             if (e.key === 'ArrowRight') showLightboxImage(currentImageIndex + 1);
             if (e.key === 'Escape') closeLightbox();
@@ -242,14 +243,14 @@ function setupLightbox() {
         
         document.addEventListener('touchstart', function(e) {
             const lightbox = document.getElementById('lightbox');
-            if (lightbox && lightbox.style.display === 'flex') {
+            if (lightbox && lightbox.classList.contains('active')) {
                 touchStartX = e.changedTouches[0].screenX;
             }
         }, false);
         
         document.addEventListener('touchend', function(e) {
             const lightbox = document.getElementById('lightbox');
-            if (lightbox && lightbox.style.display === 'flex') {
+            if (lightbox && lightbox.classList.contains('active')) {
                 touchEndX = e.changedTouches[0].screenX;
                 handleSwipe();
             }
@@ -291,12 +292,12 @@ function showLightboxImage(index) {
     
     lightboxImg.src = lightboxSrc;
     lightboxImg.alt = img.alt;
-    lightbox.style.display = 'flex';
+    lightbox.classList.add('active');
     document.body.style.overflow = 'hidden'; // Prevent background scroll
 }
 
 function closeLightbox() {
     const lightbox = document.getElementById('lightbox');
-    if (lightbox) lightbox.style.display = 'none';
+    if (lightbox) lightbox.classList.remove('active');
     document.body.style.overflow = '';
 }
