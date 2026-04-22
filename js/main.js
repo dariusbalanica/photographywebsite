@@ -45,10 +45,15 @@ function initializeNavigation() {
     });
   });
 
-  // Update navbar state on scroll
+  // Update navbar state on scroll - throttled
+  let lastNavUpdate = 0;
   window.addEventListener('scroll', () => {
-    updateNavbarState();
-  });
+    const now = Date.now();
+    if (now - lastNavUpdate > 100) { // Update max once every 100ms
+      updateNavbarState();
+      lastNavUpdate = now;
+    }
+  }, { passive: true });
 }
 
 /**
@@ -58,22 +63,31 @@ function updateNavbarState() {
   const navbar = document.getElementById('navbar');
   if (!navbar) return;
 
-  if (window.scrollY > 50) {
+  const isScrolled = window.scrollY > 50;
+  const hasScrolledClass = navbar.classList.contains('scrolled');
+  
+  // Only update DOM if state actually changed
+  if (isScrolled && !hasScrolledClass) {
     navbar.classList.add('scrolled');
-  } else {
+  } else if (!isScrolled && hasScrolledClass) {
     navbar.classList.remove('scrolled');
   }
 }
 
 /**
- * Setup scroll behavior
+ * Setup scroll behavior with throttling
  */
 function setupScrollBehavior() {
   // Scroll position for sections
   const sections = document.querySelectorAll('section[id]');
   if (sections.length === 0) return;
 
-  window.addEventListener('scroll', () => {
+  // Cache nav links
+  const navLinks = document.querySelectorAll('.nav-links:not(.lang-switch) a[href^="#"]');
+  let lastScrollY = 0;
+  let ticking = false;
+
+  function updateActiveLink() {
     let current = '';
     
     sections.forEach(section => {
@@ -83,13 +97,31 @@ function setupScrollBehavior() {
       }
     });
 
-    document.querySelectorAll('.nav-links a[href^="#"]').forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('href') === `#${current}`) {
-        link.classList.add('active');
+    navLinks.forEach(link => {
+      const href = link.getAttribute('href');
+      if (href === `#${current}`) {
+        if (!link.classList.contains('active')) {
+          link.classList.add('active');
+        }
+      } else {
+        if (link.classList.contains('active')) {
+          link.classList.remove('active');
+        }
       }
     });
-  });
+  }
+
+  // Throttle scroll events using requestAnimationFrame
+  window.addEventListener('scroll', () => {
+    lastScrollY = window.scrollY;
+    if (!ticking) {
+      window.requestAnimationFrame(updateActiveLink);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  // Call once on init
+  updateActiveLink();
 }
 
 /**
